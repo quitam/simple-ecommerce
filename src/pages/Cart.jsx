@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Container, Col, Row, Table } from 'react-bootstrap';
 import { useCart } from 'react-use-cart';
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
@@ -8,6 +8,9 @@ import Header from '../components/Header';
 const Cart = () => {
     const [theme] = useThemeHook();
     const { isEmpty, items, cartTotal, updateItemQuantity, removeItem, emptyCart } = useCart();
+    useEffect(() => {
+        document.title = 'Cart';
+    });
     return (
         <>
             <Header />

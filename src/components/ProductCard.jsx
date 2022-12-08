@@ -5,6 +5,7 @@ import { useThemeHook } from '../GlobalComponents/ThemeProvider';
 import { useCart } from 'react-use-cart';
 import { FaCartPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const ProductCard = (props) => {
     let { image, title, price, category, id } = props.data;
@@ -48,6 +49,13 @@ const ProductCard = (props) => {
                 <Button
                     onClick={() => {
                         addToCart();
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Add product to Cart',
+                            icon: 'success',
+                            showConfirmButton: false,
+                            timer: '2000',
+                        });
                     }}
                     className={`${
                         theme ? 'bg-dark-primary text-black' : 'bg-light-primary'

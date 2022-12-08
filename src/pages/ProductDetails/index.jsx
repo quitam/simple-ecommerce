@@ -4,6 +4,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useCart } from 'react-use-cart';
 import { useThemeHook } from '../../GlobalComponents/ThemeProvider';
 import { FaCartPlus } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 import Header from '../../components/Header';
 
@@ -64,7 +65,16 @@ const ProductDetails = () => {
                                 theme ? 'bg-dark-primary text-black' : 'bg-light-primary'
                             } d-flex align-items-center mt-4 border-0`}
                             style={{ borderRadius: '0' }}
-                            onClick={() => addItem(productData)}
+                            onClick={() => {
+                                addItem(productData);
+                                Swal.fire({
+                                    title: 'Success!',
+                                    text: 'Add product to Cart',
+                                    icon: 'success',
+                                    showConfirmButton: false,
+                                    timer: '2000',
+                                });
+                            }}
                         >
                             <FaCartPlus size="1.7rem" className="me-2" />
                             Add to Cart

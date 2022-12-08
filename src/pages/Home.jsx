@@ -18,7 +18,7 @@ const Home = () => {
 
     useEffect(() => {
         getResponse();
-        console.log(productData);
+        document.title = 'Home';
     }, []);
     return (
         <>
